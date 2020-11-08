@@ -22,6 +22,8 @@ public class WeatherController {
     @GetMapping
     public String getIndex(Model model) {
         model.addAttribute("request", new Request());
+        Iterable<Request> zipCodes = weatherRepository.findFirst10ByOrderByIdDesc();
+        model.addAttribute("zipCodes", zipCodes);
         return "index";
     }
 
