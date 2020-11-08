@@ -37,9 +37,17 @@
                     + data.weather[0].get('icon') + '.png'}}"></p>
                     </div>
                 </div>
-                <ul class="list-group" th:each="zip:${zipCodes}">
-                    <li class="list-group-item" th:text="${zip.zipCode}"></li>
-                </ul>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Recent Searches</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="zip:${zipCodes}">
+                            <td th:text="${zip.zipCode}"></td>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
